@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.hangmanproject.HangmanApplication">
+   <children>
+      <MenuBar layoutX="-11.0" layoutY="1.0" maxWidth="1.7976931348623157E308" prefHeight="26.0" prefWidth="1211.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Application">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#startGame" text="Start" />
+                  <MenuItem mnemonicParsing="false" onAction="#setProbabilitesContainer" text="Create" />
+                  <MenuItem mnemonicParsing="false" onAction="#exitGame" text="Exit" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Details">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#dictionary1Button" text="Dictionary1" />
+                  <MenuItem mnemonicParsing="false" onAction="#dictionary2Button" text="Dictionary2" />
+                  <MenuItem mnemonicParsing="false" onAction="#showSolution" text="Solution" />
+                  <MenuItem mnemonicParsing="false" onAction="#dictionaryInfo" text="Dictionary Info" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="55.0" layoutY="52.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="105.0" text="Available Words:">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="439.0" layoutY="52.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="62.0" text="Points:">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="948.0" layoutY="52.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="113.0" text="Correct Guesses% ">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <Line endX="-82.50003051757812" endY="442.0" layoutX="243.0" layoutY="330.0" opacity="0.0" startX="-82.50003051757812" startY="-154.49998474121094" strokeWidth="18.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Line>
+      <Line endX="-92.19998168945312" endY="-165.60000610351562" layoutX="253.0" layoutY="340.0" opacity="0.0" startX="208.60000610351562" startY="-165.60000610351562" strokeWidth="18.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Line>
+      <Line endX="-101.39999389648438" endY="-100.39999389648438" layoutX="263.0" layoutY="350.0" opacity="0.0" startX="-19.800018310546875" startY="-174.79998779296875" strokeWidth="14.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Line>
+      <Line endX="198.60000610351562" endY="-110.79998779296875" layoutX="263.0" layoutY="350.0" opacity="0.0" startX="198.60000610351562" startY="-174.79998779296875" strokeWidth="18.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Line>
+      <ImageView fx:id="imageView" fitHeight="633.0" fitWidth="453.0" layoutX="38.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ImageView>
+      <TextField fx:id="availableWordsNum" alignment="CENTER" focusTraversable="false" layoutX="170.0" layoutY="52.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="44.0" text="0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <TextField fx:id="pointsNum" alignment="CENTER" focusTraversable="false" layoutX="516.0" layoutY="52.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="44.0" text="0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <TextField fx:id="correctGuessesNum" alignment="CENTER" focusTraversable="false" layoutX="1075.0" layoutY="52.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="70.0" text="0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></TextField>
+      <TextField alignment="CENTER" editable="false" focusTraversable="false" layoutX="55.0" layoutY="95.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="105.0" text="Dictionary">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="dictionaryBox" alignment="CENTER" focusTraversable="false" layoutX="170.0" layoutY="95.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="130.0" text="None">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="correctGuessesNum1" alignment="CENTER" editable="false" focusTraversable="false" layoutX="946.0" layoutY="95.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="114.0" text="Lives:">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TextField>
+      <TextField fx:id="livesLeftNum" alignment="CENTER" focusTraversable="false" layoutX="1075.0" layoutY="95.0" mouseTransparent="true" opacity="0.71" prefHeight="26.0" prefWidth="70.0" text="0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </TextField>
+      <GridPane fx:id="probabilitesContainer" layoutX="1008.0" layoutY="230.0" prefHeight="382.0" prefWidth="106.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+      </GridPane>
+      <GridPane fx:id="lettersContainer" layoutX="579.0" layoutY="698.0" prefHeight="82.0" prefWidth="582.0">
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+   </children>
+   <cursor>
+      <Cursor fx:constant="HAND" />
+   </cursor>
+</AnchorPane>

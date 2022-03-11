@@ -1,0 +1,4 @@
+1)Getters and make variables private?
+2) Σε μια κλάση της επιλογής σας θα πρέπει κάθε public μέθοδος που περιέχει να
+   είναι τεκμηριωμένη σύμφωνα με https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html
+3) GUI 
