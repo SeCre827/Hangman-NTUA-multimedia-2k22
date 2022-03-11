@@ -3,6 +3,8 @@ A Hangman Game project in Java for the multimedia course of NTUA
 
 <p align = "center"> The project implements a complex variant of the Hangman game. The goal was to write this project with Java, using the OOP principles and doing an api call. </p>
 
+
+
 ## Details
 * The user can choose two different IDs to create a dictionary from an API that is made to ```https://openlibrary.org/works/{OPEN-LIBRARY-ID}.json```. The API call returns a description from a book. Filtering that description we make a dictionary and then choose randomly a word that the player has to guess in order to win the game.
 * The user can load Dictionaries (dictionaries that were created).
@@ -18,7 +20,10 @@ A Hangman Game project in Java for the multimedia course of NTUA
 * The game ends when the player either finds the hidden word, or runs out of tries. 
 
 ##Screenshots of the GUI
-
+![hangman0](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/main/GUI_Screenshots/6)%20GamePlay.png?raw=true)
+![hangman1](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/main/GUI_Screenshots/9)%20Lost%20game%20dialog.png?raw=true)
+![hangman2](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/main/GUI_Screenshots/3)Start%20game.png?raw=true)
+![hangman3](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/main/GUI_Screenshots/7)%20won%20dialog.png?raw=true)
 
 
 ### Required Jars
