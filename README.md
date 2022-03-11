@@ -29,3 +29,5 @@ A Hangman Game project in Java for the multimedia course of NTUA
 ### Required Jars
 * [JSON Java](https://github.com/stleary/JSON-java)
 * [Java FX 17](https://openjfx.io/openjfx-docs/)
+
+[//]: # (* images notloading in Github)
