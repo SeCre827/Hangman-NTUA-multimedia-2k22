@@ -8,14 +8,18 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Objects;
 
 public class HangmanApplication extends Application {
@@ -39,6 +43,7 @@ public class HangmanApplication extends Application {
     public TextField dictionaryBox;
     public TextField correctGuessesNum;
     public TextField livesLeftNum;
+    public Text textInfo;
     public GridPane probabilitesContainer;
     public GridPane lettersContainer;
     public ImageView imageView;
@@ -133,28 +138,33 @@ public class HangmanApplication extends Application {
         game.player.setTotalGuesses(game.player.totalGuesses+1);
         pointsNum.setText(String.valueOf(game.player.points));
         livesLeftNum.setText(String.valueOf(game.player.lifes));
-        if(game.player.correct_Guesses.size()!= 0) {
-        }
+        textInfo.setText("Pick a position to guess a letter for!");
         if(game.player.correct_Guesses.size()!= 0) {
             correctGuessesNum.setText(String.valueOf((float)game.player.correct_Guesses.size()/game.player.totalGuesses));
         }
         else        correctGuessesNum.setText(String.valueOf(game.player.correct_Guesses.size()));
 //        availableWordsNum.setText(String.valueOf(game.round.possibleWords.size()));
-        if (game.player.correct_Guesses.size()==game.word.length()) {
-                a.setAlertType(Alert.AlertType.CONFIRMATION);
-                a.setContentText("YOU WIN!");
+        if (game.player.correct_Guesses.size()==game.word.length() && game.player.lifes > 0) {
+            textInfo.setText("YOU WIN!");
+            a.setAlertType(Alert.AlertType.CONFIRMATION);
+            a.setTitle("Game ended");
+            a.setContentText("YOU WON!");
                 // show the dialog
                 a.show();
             }
-            if (game.player.lifes==0) {
+            if (game.player.lifes<=0) {
+                textInfo.setText("YOU LOST! Start another round!");
                 a.setAlertType(Alert.AlertType.CONFIRMATION);
-                a.setContentText("YOU LOSE!");
+                a.setTitle("Game ended");
+                a.setContentText("YOU LOSE! \n Start another round by clicking application -> Start.");
+
                 // show the dialog
                 a.show();
             }
             game.round.letterProbs.clear();
             game.round.letterProbsSorted.clear();
-            setLettersContainer();
+
+        setLettersContainer();
             setProbabilitesContainer();
             imageHandler();
     }
@@ -167,6 +177,7 @@ public class HangmanApplication extends Application {
      */
     private void letterHandler(MouseEvent e) {
         Number n = (Number)  e.getSource(); // exw access sto number
+        textInfo.setText("Guessing for letter in position: " + n.position);
         game.round.setLetterPosition(n.position);
         game.round.computeSortedProbabilities();
         setProbabilitesContainer();
@@ -218,12 +229,12 @@ public class HangmanApplication extends Application {
         {
             // set alert type
             a.setAlertType(Alert.AlertType.WARNING);
+            a.setTitle("No dictionary picked");
             a.setContentText("You have to choose a dictionary first!");
             // show the dialog
             a.show();
         }
             else {
-
                 game.connectApi(dictId);
                 game.wordsHandler(dictId);
                 game.setStartingPossibleWords();
@@ -235,7 +246,9 @@ public class HangmanApplication extends Application {
                 game.startGame();
                 setLettersContainer();
                 imageView.setImage(eikona0);
-                }
+                textInfo.setText("New game started!");
+
+            }
     }
 
     /**
@@ -246,7 +259,9 @@ public class HangmanApplication extends Application {
      */
     public  void showSolution(ActionEvent e) throws UndersizeException, FileNotFoundException, UnbalancedException {
         a.setAlertType(Alert.AlertType.INFORMATION);
-        a.setContentText(game.word);
+        textInfo.setText("YOU LOSE!");
+        a.setTitle("Show solution");
+        a.setContentText("You lost! The word is: " + game.word);
         // show the dialog
         a.show();
         startGame(new ActionEvent());
@@ -306,18 +321,52 @@ public class HangmanApplication extends Application {
                 moreThanTen++;
             }
         }
-        if(six > 0 ){ six = (float) six/ game.startingWords.size();}
+        if(six > 0 ){ six = (float) (Math.floor(six / game.startingWords.size() * 100) / 100);}
         else six = 0;
-        if(sevenToNine > 0 ){ sevenToNine = (float) sevenToNine/ game.startingWords.size();}
+
+        if(sevenToNine > 0 ){ sevenToNine = (float) (Math.floor(sevenToNine / game.startingWords.size() * 100) / 100);}
         else sevenToNine = 0;
-        if(moreThanTen > 0 ){ moreThanTen = (float) moreThanTen/ game.startingWords.size();}
+
+        if(moreThanTen > 0 ){ moreThanTen = (float) (Math.floor(moreThanTen / game.startingWords.size() * 100) / 100);}
         else moreThanTen = 0;
         a.setAlertType(Alert.AlertType.INFORMATION);
-        a.setContentText("Percentage of words with 6 letters: " + six +"%" + "/n"+ "Percentage of words between 7 and 9 letters: " + sevenToNine +"%"+ "/n" + "/n Percentage of words with more than 10 letters: " + moreThanTen +"%");
+        a.setTitle("Dictionary Words Length Frequency");
+        a.setContentText("Percentage of words with 6 letters: " + six +"%" + "\n"+ "Percentage of words between 7 and 9 letters: " + sevenToNine +"%"+ "\n" + " Percentage of words with more than 10 letters: " + moreThanTen +"%");
         // show the dialog
         a.show();
 
     }
+
+    /**
+     * method that loads the specified txt (by giving the dictionary_id) as the current dictionary
+     * @throws IOException Exception occurs when trying to open the txt that has the dictionary inside
+     */
+    public void loadAction() throws IOException, UndersizeException, UnbalancedException {
+        TextInputDialog lDialog = new TextInputDialog("Dictionary_ID");
+        lDialog.setTitle("Load Dictionary");
+        lDialog.setHeaderText("Enter your the Dictionary_ID you want to load:");
+        lDialog.showAndWait();
+        dictId = lDialog.getEditor().getText();
+        System.out.println(dictId);
+//        if (new File("medialab/hangman_" + dictId + ".txt").isFile()) {
+        if (new File( "./src/main/resources/medialab/"+"hangman_" + dictId + ".txt").isFile()) {
+
+                startGame(new ActionEvent());
+        }
+        else if (new File("medialab/hangman_" + dictId + ".txt").isFile()) {
+
+            startGame(new ActionEvent());
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Dictionary 404");
+            alert.setHeaderText(null);
+            alert.setGraphic(null);
+            alert.setContentText("This Dictionary does not exist.\nTry an other dictionary, or create a new one.");
+            alert.showAndWait();
+        }
+    }
+
 
 
     /**

@@ -5,7 +5,7 @@ A Hangman Game project in Java for the multimedia course of NTUA
 
 ## Details
 * The user can choose two different IDs to create a dictionary from an API that is made to ```https://openlibrary.org/works/{OPEN-LIBRARY-ID}.json```. The API call returns a description from a book. Filtering that description we make a dictionary and then choose randomly a word that the player has to guess in order to win the game.
-* The user can create new Dictionaries by putting in a series of words separated by whitespace.
+* The user can load Dictionaries (dictionaries that were created).
 * To form the dictionaries all special chars and numbers are eliminated. ALso duplicates are eliminated.
 * Also, the 20% of the words in the dictionary must have length >= 9, duplicates can not exist and the total dictionary length has to be >= 20. In any other case the dictionary is invalid.
 * The hidden word will be chosen randomly from the active dictionary. 
