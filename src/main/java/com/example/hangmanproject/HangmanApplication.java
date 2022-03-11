@@ -153,10 +153,10 @@ public class HangmanApplication extends Application {
                 a.show();
             }
             if (game.player.lifes<=0) {
-                textInfo.setText("YOU LOST! Start another round!");
+                textInfo.setText("YOU LOST! The word was: " + game.word +"\n Start another round and try again!");
                 a.setAlertType(Alert.AlertType.CONFIRMATION);
                 a.setTitle("Game ended");
-                a.setContentText("YOU LOSE! \n Start another round by clicking application -> Start.");
+                a.setContentText("YOU LOSE! The word was: " + game.word +"\n Start another round by clicking application -> Start.");
 
                 // show the dialog
                 a.show();
