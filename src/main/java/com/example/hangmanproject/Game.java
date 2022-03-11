@@ -47,7 +47,7 @@ public class Game {
      * Send a get request to tha api.
      *  @param dictId The dictID for the API call
      */
-    public void connectApi(String dictId) throws UndersizeException, UnbalancedException {
+    public void connectApi(String dictId) throws UndersizeException, UnbalancedException, FileNotFoundException {
         ConnectApi connect = new ConnectApi();
         String desc = connect.create_connection(dictId);  //        System.out.println(desc);
         connect.desc_to_set_and_file(desc, dictId);
@@ -59,7 +59,7 @@ public class Game {
      *  @param dictId The dictID for the API call
      */
     public void wordsHandler(String dictId) throws FileNotFoundException {
-        Scanner scanner = new Scanner(new File("C:\\Users\\lefte\\Desktop\\Hangman\\src\\main\\resources\\medialab\\hangman_" + dictId +".txt"));
+        Scanner scanner = new Scanner(new File("C:\\Users\\lefte\\Documents\\GitHub\\Hangman-NTUA-multimedia-2k22\\src\\main\\resources\\medialab\\hangman_" + dictId +".txt"));
         // Put all the words into an array
         while( scanner.hasNext()) {
             this.words.add(scanner.nextLine());
@@ -71,6 +71,10 @@ public class Game {
         this.flags = new int[word.length()];
         Arrays.fill(this.flags,0);
   }
+//    C:\Users\lefte\Documents\GitHub\Hangman-NTUA-multimedia-2k22\src\main\resources\medialab
+//    C:\Users\lefte\Documents\GitHub\Hangman-NTUA-multimedia-2k22\src\main\resources\medialab\hangman_1.txt
+//    C:\Users\lefte\Desktop\Hangman\src\main\resources\medialab\hangman_1.txt
+
 
     /**
      * setStartingPossibleWords method

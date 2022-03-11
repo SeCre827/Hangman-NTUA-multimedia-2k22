@@ -7,10 +7,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 /**
  * ConnectAPI Class
@@ -45,17 +42,27 @@ public class ConnectApi {
      * @return the description and returns the Data as a set of filtered words
      */
 
-    public  String create_connection (String dictID) {
-    if (Objects.equals(dictID, "OL31390631M")) {
-        try
-        {
-            Thread.sleep(3500);
+    public  String create_connection (String dictID) throws FileNotFoundException {
+        if (Objects.equals(dictID, "1") || Objects.equals(dictID, "2") ) {
+            StringBuilder data = new StringBuilder();
+            File myObj = new File( "./src/main/resources/medialab/"+"hangman_" + dictID + ".txt");
+            Scanner myReader = new Scanner(myObj);
+            while (myReader.hasNextLine()) {
+            data.append(myReader.nextLine());
+            data.append(" ");
+            }
+            return data.toString();
         }
-        catch(InterruptedException ex)
-        {
-            Thread.currentThread().interrupt();
-        }
-        return  "In A Game of Thrones George  Martin has created a genuine masterpiece bringing together the best the genre has to offer Mystery intrigue romance and adventure fill the pages of the first volume in an epic series sure to delight fantansy fans everywhere In a land where summers can last decades and winters a lifetime trouble is brewing The cold is returning and in the frozen wastes of the north of Winterfell sinister and supernatural forces are massing beyond the kingdom protective Wall At the center of the conflict lie the Starks of Winterfell a family as harsh and unyielding as the land they were born to Sweeping from a land of brutal cold to a distant summertime kingdom of epicurean plenty here is a tale of lords and ladies soldiers and sorcerers assassins and bastards who come together in a time of grim omens Amid plots and counterplots tragedy and betrayal victory and terror the fate of the Starks their allies and their enemies hangs perilously in the balance as each endeavors to win that deadliest of conflicts the game of thrones  back cover";
+        if (Objects.equals(dictID, "OL31390631M")) {
+            try
+            {
+                Thread.sleep(3500);
+            }
+            catch(InterruptedException ex)
+            {
+                Thread.currentThread().interrupt();
+            }
+            return  "In A Game of Thrones George  Martin has created a genuine masterpiece bringing together the best the genre has to offer Mystery intrigue romance and adventure fill the pages of the first volume in an epic series sure to delight fantansy fans everywhere In a land where summers can last decades and winters a lifetime trouble is brewing The cold is returning and in the frozen wastes of the north of Winterfell sinister and supernatural forces are massing beyond the kingdom protective Wall At the center of the conflict lie the Starks of Winterfell a family as harsh and unyielding as the land they were born to Sweeping from a land of brutal cold to a distant summertime kingdom of epicurean plenty here is a tale of lords and ladies soldiers and sorcerers assassins and bastards who come together in a time of grim omens Amid plots and counterplots tragedy and betrayal victory and terror the fate of the Starks their allies and their enemies hangs perilously in the balance as each endeavors to win that deadliest of conflicts the game of thrones  back cover";
 
     }
 //    OL45883W.json

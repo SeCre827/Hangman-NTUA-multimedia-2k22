@@ -347,7 +347,6 @@ public class HangmanApplication extends Application {
         lDialog.setHeaderText("Enter your the Dictionary_ID you want to load:");
         lDialog.showAndWait();
         dictId = lDialog.getEditor().getText();
-        System.out.println(dictId);
 //        if (new File("medialab/hangman_" + dictId + ".txt").isFile()) {
         if (new File( "./src/main/resources/medialab/"+"hangman_" + dictId + ".txt").isFile()) {
 

@@ -21,7 +21,6 @@ public class Round {
 
     // Constructor
     Round(){
-        System.out.println("Round Constructor");
         this.letterProbs = new Hashtable<>();
         this.possibleWords = new ArrayList<>();
     }

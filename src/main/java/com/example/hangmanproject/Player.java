@@ -38,7 +38,6 @@ public class Player {
      * resets the player class
      */
     public void reset (){
-        System.out.println("Running Player Reset");
         this.lifes = 6;
         this.points = 0;
         this.totalGuesses= 0;
