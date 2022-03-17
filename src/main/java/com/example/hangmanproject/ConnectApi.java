@@ -45,7 +45,7 @@ public class ConnectApi {
     public  String create_connection (String dictID) throws FileNotFoundException {
         if (Objects.equals(dictID, "1") || Objects.equals(dictID, "2") ) {
             StringBuilder data = new StringBuilder();
-            File myObj = new File( "medialab/"+"hangman_" + dictID + ".txt");
+            File myObj = new File( "./src/main/resources/medialab/"+"hangman_" + dictID + ".txt");
 
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
