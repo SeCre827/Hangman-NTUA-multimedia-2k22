@@ -45,7 +45,8 @@ public class ConnectApi {
     public  String create_connection (String dictID) throws FileNotFoundException {
         if (Objects.equals(dictID, "1") || Objects.equals(dictID, "2") ) {
             StringBuilder data = new StringBuilder();
-            File myObj = new File( "./src/main/resources/medialab/"+"hangman_" + dictID + ".txt");
+            File myObj = new File( "medialab/"+"hangman_" + dictID + ".txt");
+
             Scanner myReader = new Scanner(myObj);
             while (myReader.hasNextLine()) {
             data.append(myReader.nextLine());
@@ -90,7 +91,6 @@ public class ConnectApi {
         String desc_lowered = desc.toUpperCase();
         String[] temp = desc_lowered.split("\\s+");
         Set<String> mySet = new HashSet<>(Arrays.asList(temp));
-//        String dictID = "1";
         // remove words with length less than 6
         mySet.removeIf(word -> word.length() < 6);
         double count = 0;
@@ -118,22 +118,4 @@ public class ConnectApi {
 }
 
 
-//package com.example.hangmanproject;
-//
-//        import javafx.event.ActionEvent;
-//        import javafx.fxml.FXML;
-//        import javafx.scene.input.MouseEvent;
-//
-//public class Controller {
-//
-//
-//    @FXML
-//    public  void handler(ActionEvent e){
-//        System.out.println("Event handler");
-//    }
-//
-//
-//    public  void mouseHandler(MouseEvent e){
-//        System.out.println("Event handler");
-//    }
-//}
+

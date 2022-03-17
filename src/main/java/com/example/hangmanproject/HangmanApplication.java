@@ -348,14 +348,16 @@ public class HangmanApplication extends Application {
         lDialog.showAndWait();
         dictId = lDialog.getEditor().getText();
 //        if (new File("medialab/hangman_" + dictId + ".txt").isFile()) {
-        if (new File( "./src/main/resources/medialab/"+"hangman_" + dictId + ".txt").isFile()) {
+//        if (new File( "./src/main/resources/medialab/"+"hangman_" + dictId + ".txt").isFile()) {
+            if (new File( "/medialab/"+"hangman_" + dictId + ".txt").isFile()) {
+
 
                 startGame(new ActionEvent());
         }
-        else if (new File("medialab/hangman_" + dictId + ".txt").isFile()) {
-
-            startGame(new ActionEvent());
-        }
+//        else if (new File("medialab/hangman_" + dictId + ".txt").isFile()) {
+//
+//            startGame(new ActionEvent());
+//        }
         else {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Dictionary 404");
