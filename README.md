@@ -20,6 +20,7 @@ A Hangman Game project in Java for the multimedia course of NTUA
 * The game ends when the player either finds the hidden word, or runs out of tries. 
 
 ##Screenshots of the GUI
+![Alt text](./GUI_Screenshots/GamePlay.png?raw=true "Title")
 ![hangman0](./GUI_Screenshots/GamePlay.png)
 ![hangman1](.src/main/resourses/GUI_Screenshots/Start.png))
 ![hangman2](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/GUI_Screenshots/pick+dictionary.png))
