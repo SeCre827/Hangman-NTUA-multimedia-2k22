@@ -20,13 +20,14 @@ A Hangman Game project in Java for the multimedia course of NTUA
 * The game ends when the player either finds the hidden word, or runs out of tries. 
 
 ##Screenshots of the GUI
-![alt text](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/main/GUI_Screenshots/1)
-https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/main/GUI_Screenshots/1)Start.png?raw=true
-![Alt text](./GUI_Screenshots/GamePlay.png?raw=true "Title")
-![hangman0](./GUI_Screenshots/GamePlay.png)
-![hangman1](.src/main/resourses/GUI_Screenshots/Start.png))
-![hangman2](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/GUI_Screenshots/pick+dictionary.png))
-![hangman3](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/GUI_Screenshots/7.png)%20won%20dialog.png?raw=true)
+![6) GamePlay](https://user-images.githubusercontent.com/75163039/159472073-aa4b7610-a5f9-41f2-831f-6e0d2b915576.png)
+![1)Start](https://user-images.githubusercontent.com/75163039/159472255-be80b1c9-bfd6-41d2-aa67-1e4398de2928.png)
+![2)pick dictionary](https://user-images.githubusercontent.com/75163039/159472282-c31caa01-231f-4324-afd3-a090c4dabe49.png)
+![5)Load premade dictionary](https://user-images.githubusercontent.com/75163039/159472305-ed36a533-7e7c-4a99-b2ce-cbf83c0e17cd.png)
+![4)guess for letter](https://user-images.githubusercontent.com/75163039/159472221-e2814cf8-901e-441e-937b-5eec992c8d1b.png)
+![9) Lost game dialog](https://user-images.githubusercontent.com/75163039/159472351-03ff1540-740a-460a-ae12-e6aad80e9a68.png)
+![7) won dialog](https://user-images.githubusercontent.com/75163039/159472389-26b5dd9f-7f9d-4ff4-bb4b-eed07995dfaa.png)
+
 
 
 ### Required Jars
