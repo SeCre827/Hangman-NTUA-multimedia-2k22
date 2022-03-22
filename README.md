@@ -20,10 +20,10 @@ A Hangman Game project in Java for the multimedia course of NTUA
 * The game ends when the player either finds the hidden word, or runs out of tries. 
 
 ##Screenshots of the GUI
-![hangman0](./GUI_Screenshots/GamePlay)
-![hangman1](.src/main/resourses/GUI_Screenshots/Start))
-![hangman2](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/GUI_Screenshots/pick+dictionary))
-![hangman3](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/GUI_Screenshots/7)%20won%20dialog.png?raw=true)
+![hangman0](./GUI_Screenshots/GamePlay.png)
+![hangman1](.src/main/resourses/GUI_Screenshots/Start.png))
+![hangman2](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/GUI_Screenshots/pick+dictionary.png))
+![hangman3](https://github.com/SeCre827/Hangman-NTUA-multimedia-2k22/blob/GUI_Screenshots/7.png)%20won%20dialog.png?raw=true)
 
 
 ### Required Jars
